@@ -1,0 +1,51 @@
+apiVersion: appsody.dev/v1beta1
+kind: AppsodyApplication
+metadata:
+  annotations:
+    image.opencontainers.org/created: "2019-12-12T19:45:17+05:30"
+    stack.appsody.dev/authors: Erin Schnabel <schnabel@us.ibm.com>, Ozzy <ozzy@ca.ibm.com>
+    stack.appsody.dev/configured: docker.io/appsody/java-spring-boot2:0.3
+    stack.appsody.dev/created: "2019-12-11T20:07:50Z"
+    stack.appsody.dev/description: Spring Boot using OpenJ9 and Maven
+    stack.appsody.dev/licenses: Apache-2.0
+    stack.appsody.dev/tag: appsody/java-spring-boot2:0.3.20
+    stack.appsody.dev/title: Spring Boot®
+  creationTimestamp: null
+  labels:
+    image.opencontainers.org/title: appsody-apps
+    stack.appsody.dev/id: java-spring-boot2
+    stack.appsody.dev/version: 0.3.20
+  name: appsody-apps
+spec:
+  applicationImage: dev.local/appsody-apps
+  createKnativeService: false
+  expose: true
+  livenessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /actuator/liveness
+      port: 8080
+    initialDelaySeconds: 5
+    periodSeconds: 2
+  monitoring:
+    endpoints:
+    - path: /actuator/prometheus
+    labels:
+      k8s-app: appsody-apps
+  readinessProbe:
+    failureThreshold: 12
+    httpGet:
+      path: /actuator/health
+      port: 8080
+    initialDelaySeconds: 5
+    periodSeconds: 2
+    timeoutSeconds: 1
+  service:
+    annotations:
+      prometheus.io/path: /actuator/prometheus
+      prometheus.io/scrape: "true"
+    port: 8080
+    type: NodePort
+  stack: java-spring-boot2
+  version: 1.0.0
+status: {}
