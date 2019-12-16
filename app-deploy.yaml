@@ -17,7 +17,7 @@ metadata:
     stack.appsody.dev/version: 0.3.20
   name: appsody-apps
 spec:
-  applicationImage: dev.local/appsody-apps
+  applicationImage: srinivma/appsody-apps
   createKnativeService: false
   expose: true
   livenessProbe:
