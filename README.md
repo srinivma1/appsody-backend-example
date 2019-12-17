@@ -60,6 +60,8 @@ Check the existing repositories to see the change:
       *kabanero        https://github.com/kabanero-io/collections/releases/download/0.3.0/kabanero-index.yaml
 Your Appsody CLI is now configured to use the Kabanero Collections. Next, you need to initialize your project.
 
+
+
 ## Initializing your project
 First, create a directory that will contain the project:
 
@@ -116,6 +118,12 @@ It contains the following artifacts:
       index.html, a static HTML file
 
       pom.xml, a project build file
+      
+## Workaround if docker destop not accepting credentials using Azure Active Directory for sharing files
+
+If Docker Desktop does not accept your AAD user and password in the "Shared Drives" tab of the Docker "Settings" panel, or you just do not have the password for your user, the only known workaround at this time is to use a separate, local, Windows account to handle the drive sharing and file permissions.
+
+  https://appsody.dev/docs/docker-windows-aad/#workaround-for-windows-10-enterprise-secured-with-azure-active-directory
 
 ## Running the Appsody development environment
 
