@@ -1,9 +1,9 @@
 # appsody-backend-example
 
-   This writeup will show how to generate appsody(cloud naticew
+   This writeup will show how to generate cloud native microservice applications using appsody.
 
 ## Prerequisites for Windows 10 Professional
- 1. Minimum OS would be Windows 10 Professional.
+ 1. Minimum OS should be Windows 10 Professional.
  
  2. Docker for Windows 10 installed.
  
