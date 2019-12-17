@@ -1,6 +1,6 @@
 # appsody-backend-example
 
-   This writeup will show how to generate cloud native microservice applications using appsody.
+   This writeup will show how to generate cloud native microservice applications based on appsody(IBM Cloud pak for applications)
 
 ## Prerequisites for Windows 10 Professional
  1. Minimum OS should be Windows 10 Professional.
