@@ -123,6 +123,21 @@ It contains the following artifacts:
 
 If Docker Desktop does not accept your AAD user and password in the "Shared Drives" tab of the Docker "Settings" panel, or you just do not have the password for your user, the only known workaround at this time is to use a separate, local, Windows account to handle the drive sharing and file permissions.
 
+    REM This has to be the same user applied to the Shared Drive in Docker Desktop
+    set DOCKER_SHARED_DRIVE_USER=Developer
+    REM if using the java-microprofile collection and until issue 
+    REM https://github.com/appsody/stacks/issues/363 is resolved:
+    mkdir %USERPROFILE%\.m2\repository
+    icacls "%USERPROFILE%\.m2" /grant %DOCKER_SHARED_DRIVE_USER%:(OI)(CI)F
+
+    mkdir %USERPROFILE%\.appsody
+    icacls "%USERPROFILE%\.appsody" /grant %DOCKER_SHARED_DRIVE_USER%:(OI)(CI)F
+
+    mkdir %USERPROFILE%\directory-for-appsody-project
+    icacls "%USERPROFILE%\directory-for-appsody-project" /grant %DOCKER_SHARED_DRIVE_USER%:(OI)(CI)F
+    
+ For more, refer to following URL:   
+
   https://appsody.dev/docs/docker-windows-aad/#workaround-for-windows-10-enterprise-secured-with-azure-active-directory
 
 ## Running the Appsody development environment
